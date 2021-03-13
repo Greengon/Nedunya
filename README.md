@@ -17,9 +17,11 @@ Projects guidelines:
 Let's talk about the stack:
 
 Frontend:
+
 Vue.js framework - mainly cause Vue is much simpler and more comfortable to learn with better documentation then React.
 
 Backend:
+
 Nodejs for all backend coding
 Probaly would use apache or something on an ubuntu vps (Should problay look this up)
 Usermangment - heard about passportjs
