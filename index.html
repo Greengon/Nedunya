@@ -12,22 +12,22 @@
         -->
     </head>
     <body>
-        <div id ="app">
+        <div id ="vm">
             {{ message }}
         </div>
 
-        <div id="app-2">
+        <div id="vm-2">
             <span v-bind:title="message">
                 Hover your mouse over me for a few seconds
                 to see my dynamically bound title!
             </span>
         </div>
 
-        <div id="app-3">
+        <div id="vm-3">
             <span v-if="seen">Now you see me</span>
         </div>
 
-        <div id ="app-4">
+        <div id ="vm-4">
             <ol>
                 <li v-for="todo in todos">
                     {{ todo.text }}
@@ -35,17 +35,17 @@
             </ol>
         </div>
 
-        <div id="app-5">
+        <div id="vm-5">
             <p>{{ message }}</p>
             <button v-on:click="reverseMessage">Reverse Message</button>
         </div>
 
-        <div id="app-6">
+        <div id="vm-6">
             <p>{{ message }}</p>
             <input v-model="message">
         </div>
 
-        <div id="app-7">
+        <div id="vm-7">
             <ol>
                 <!-- 
                     Now we provide each todo-item with the todo object
@@ -62,12 +62,12 @@
 
         <script>
             /*
-                A Vue app attaches itself to a single DOM element ( #app in our case)
+                A Vue app attaches itself to a single DOM element ( #vm in our case)
                 then fully controls it. The HTML is our entry point, but everything else
                 happens within the newly created Vue instance.
             */ 
-            var app = new Vue({
-                el: '#app',
+            var vm = new Vue({
+                el: '#vm',
                 data: {
                     message: 'Hello Vue!'
                 }
@@ -79,8 +79,8 @@
                 by Vue, and as you may guessed, they apply special reactive behavior to
                 the redered DOM.
             */
-            var app2 = new Vue({
-                el: '#app-2',
+            var vm2 = new Vue({
+                el: '#vm-2',
                 data: {
                     message: 'You loaded this page on ' + new Date().toLocaleString()
                 }
@@ -90,8 +90,8 @@
                 This example demonstrates that we can bind data to not only text and
                 attributes, but also the structure of the DOM.
             */
-            var app3 = new Vue({
-                el: '#app-3',
+            var vm3 = new Vue({
+                el: '#vm-3',
                 data: {
                     seen: true
                 }
@@ -101,8 +101,8 @@
                 The v-for directive can be used for displaying a list of items using 
                 the data from an Array.
             */
-            var app4 = new Vue({
-                el: '#app-4',
+            var vm4 = new Vue({
+                el: '#vm-4',
                 data: {
                     todos: [
                         { text: 'Learn JavaScript'},
@@ -116,8 +116,8 @@
                 To let users interact with your app, we can use the v-on directive to
                 attach event listeners that invoke methods on our Vue instances.
             */
-           var app5 = new Vue({
-               el: '#app-5',
+           var vm5 = new Vue({
+               el: '#vm-5',
                data: {
                    message: 'Hello Vue.js!'
                },
@@ -132,8 +132,8 @@
                 v-model directive makes two-way binding between from input and app state
                 a breeze.
            */
-          var app6 = new Vue({
-              el: '#app-6',
+          var vm6 = new Vue({
+              el: '#vm-6',
               data: {
                   message: 'Hello Vue!'
               }
@@ -151,8 +151,8 @@
               template: '<li>{{ todo.text }}</li>'
           })
 
-          var app7 = new Vue({
-              el: '#app-7',
+          var vm7 = new Vue({
+              el: '#vm-7',
               data: {
                   groceryList: [
                       { id: 0, text: 'Vegetables'},
