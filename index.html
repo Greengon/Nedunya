@@ -16,13 +16,113 @@
             {{ message }}
         </div>
 
+        <div id="app-2">
+            <span v-bind:title="message">
+                Hover your mouse over me for a few seconds
+                to see my dynamically bound title!
+            </span>
+        </div>
+
+        <div id="app-3">
+            <span v-if="seen">Now you see me</span>
+        </div>
+
+        <div id ="app-4">
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+        </div>
+
+        <div id="app-5">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+
+        <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+        </div>
+
         <script>
+            /*
+                A Vue app attaches itself to a single DOM element ( #app in our case)
+                then fully controls it. The HTML is our entry point, but everything else
+                happens within the newly created Vue instance.
+            */ 
             var app = new Vue({
                 el: '#app',
                 data: {
                     message: 'Hello Vue!'
                 }
             })
+
+            /*
+                The v-bind attribute you are seeing is called a directive. Directives
+                are prefixed with v- to indicate that they are special attributes provided
+                by Vue, and as you may guessed, they apply special reactive behavior to
+                the redered DOM.
+            */
+            var app2 = new Vue({
+                el: '#app-2',
+                data: {
+                    message: 'You loaded this page on ' + new Date().toLocaleString()
+                }
+            })
+
+            /*
+                This example demonstrates that we can bind data to not only text and
+                attributes, but also the structure of the DOM.
+            */
+            var app3 = new Vue({
+                el: '#app-3',
+                data: {
+                    seen: true
+                }
+            })
+
+            /*
+                The v-for directive can be used for displaying a list of items using 
+                the data from an Array.
+            */
+            var app4 = new Vue({
+                el: '#app-4',
+                data: {
+                    todos: [
+                        { text: 'Learn JavaScript'},
+                        { text: 'Learn Vue'},
+                        { text: 'Build something awesome'}
+                    ]
+                }
+            })
+
+            /*
+                To let users interact with your app, we can use the v-on directive to
+                attach event listeners that invoke methods on our Vue instances.
+            */
+           var app5 = new Vue({
+               el: '#app-5',
+               data: {
+                   message: 'Hello Vue.js!'
+               },
+               methods: {
+                   reverseMessage: function () {
+                       this.message = this.message.split('').reverse().join('')
+                   }
+               }
+           })
+
+           /*
+                v-model directive makes two-way binding between from input and app state
+                a breeze.
+           */
+          var app6 = new Vue({
+              el: '#app-6',
+              data: {
+                  message: 'Hello Vue!'
+              }
+          })
         </script>
     </body>
 </html>
